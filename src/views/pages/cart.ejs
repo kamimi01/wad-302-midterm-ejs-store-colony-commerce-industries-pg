@@ -1,0 +1,39 @@
+<section class="breadcrumbs">
+  <div class="breadcrumb-overlay">
+    <h1>Cart</h1>
+  </div>
+</section>
+
+<% total = 0 %>
+<div class="cartItems">
+  <% if (items.length === 0) { %>
+    <h2>Your cart is empty</h2>
+  <% } else { %>
+    <% items.forEach(cartItem => { %>
+      <div class="cartItem">
+       <img src="<%- cartItem.image %>" alt="<%- cartItem.name %>">
+       <div>
+         <div>
+           <h2><%- cartItem.name %></h2>
+           <p>$<%- cartItem.price.toFixed(2) %></p>
+         </div>
+         <p><%- cartItem.description %></p>
+         <div>
+          <div class="quantityAndButtons">
+            <p>Qty: </p>
+           <input id="quantity-<%- cartItem.id %>" type="number" value="<%- cartItem.quantity %>">
+           <button class="updateCart" onclick="updateCart('<%= cartItem.id %>')">Update</button>
+           
+           <button class="cartDelete" onclick="deleteCart('<%= cartItem.id %>')">Delete</button>
+          </div>
+           <p>Subtotal: $ <%- (cartItem.price * cartItem.quantity).toFixed(2) %></p>
+         </div>
+       </div>
+      </div>
+      <% total += cartItem.price * cartItem.quantity %>
+     <% }) %>
+
+      <h2>Total: $ <%= total.toFixed(2) %></h2>
+      <button type="submit" class="proceedToCheckout">Proceed to Checkout</button>
+  <% } %>
+</div>

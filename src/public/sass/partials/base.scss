@@ -1,0 +1,42 @@
+// this is just a sample. please delete and create your own settings
+html {
+    padding: 0;
+    margin: 0;
+}
+body {
+    margin: 0;
+}
+header {
+    height: 10vh;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    padding-top: 10vh;
+    height: 90vh;
+    width: 100%;
+}
+
+.headerContent {
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+        margin-right: 30px;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.logoutButton {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

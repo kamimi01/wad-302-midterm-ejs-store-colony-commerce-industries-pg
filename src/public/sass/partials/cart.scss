@@ -1,0 +1,100 @@
+$buttonBackground: rgb(184, 26, 26);
+$buttonHover: rgb(250, 22, 22);
+$deleteButtonBackground: rgb(7, 36, 153);
+$deleteButtonHover: rgb(63, 100, 244);
+
+.breadcrumbs {
+  background-image: url("https://gundamplacestore.com/cdn/shop/collections/MG-banner-4.jpg?v=1657269951");
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.breadcrumb-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.cartItems {
+  margin-top: 50px;
+  margin-inline: 10%;
+
+  .cartItem {
+    display: flex;
+    margin-bottom: 40px;
+
+    img {
+      width: 25%;
+      height: 25%;
+
+      margin-right: 20px;
+    }
+    & > div {
+      width: 75%;
+    }
+  }
+
+  .proceedToCheckout {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    background-color: $buttonBackground;
+    padding: 12px 45px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid $buttonBackground;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+    color: #fff;
+
+    &:hover {
+      background: $buttonHover;
+    }
+  }
+}
+
+.updateCart,
+.cartDelete {
+  margin-bottom: 25px;
+  padding: 12px 45px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  display: inline-block;
+  cursor: pointer;
+  width: 45%;
+  color: #fff;
+}
+
+.updateCart {
+  background-color: $buttonBackground;
+  border: 1px solid $buttonBackground;
+  &:hover {
+    background: $buttonHover;
+  }
+}
+
+.cartDelete {
+  background-color: $deleteButtonBackground;
+  border: 1px solid $deleteButtonBackground;
+  &:hover {
+    background: $deleteButtonHover;
+  }
+}
+
+@media (max-width: 700px) {
+  .breadcrumbs {
+    height: 200px; /* Ajusta la altura para pantallas pequeñas */
+    background-position: right center; /* Enfoca la imagen en la parte derecha */
+  }
+}

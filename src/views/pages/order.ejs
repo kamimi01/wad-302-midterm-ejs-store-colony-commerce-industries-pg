@@ -1,0 +1,40 @@
+<section class="breadcrumbs">
+    <div class="breadcrumb-overlay">
+        <h1>Order History</h1>
+    </div>
+</section>
+
+<div class="orderItems">
+    <% if (items.length===0) { %>
+        <h2>Your order history is empty</h2>
+        <% } else { %>
+            <% items.forEach(orderItem=> { %>
+                <div class="orderItem">
+                    <div>
+                        <h2>Order Date: <%- orderItem.orderDate %></h2>
+                        <h2>Total: $<%- orderItem.totalPrice.toFixed(2) %></h2>
+                    </div>
+                    <div class="orderDetail">
+                        <% orderItem.orderItems.forEach(orderItemDetail=> { %>
+
+                            <div class="orderDetailItem">
+                                <img src="<%- orderItemDetail.image %>" alt="<%- orderItemDetail.name %>">
+                                <div>
+                                    <div>
+                                        <h3><%- orderItemDetail.name %></h3>
+                                        <p>$<%- orderItemDetail.price.toFixed(2) %></p>
+                                    </div>
+                                    <p><%- orderItemDetail.description %></p>
+                                    <div>
+                                        <p>Qty: <%- orderItemDetail.quantity %></p>
+                                        <p>Subtotal: $ <%- orderItemDetail.price * orderItemDetail.quantity %></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <% }) %>
+                    </div>
+                </div>
+                <% }) %>
+                    <% } %>
+</div>

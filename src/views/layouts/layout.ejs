@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header id="header">
+      <div id="headerContent" class="headerContent">
+        <div id="leftContent" class="leftContent">
+          <h1 id="headerTitle"><a href="/">We are Colony Commerce Industries</a></h1>
+        </div>
+        <% if (route) { %>
+          <div id="rightContent" class="rightContent">
+            <% if (route === "notAuthenticated") { %>
+              <a href="/auth/login">
+                <button id="loginButton">
+                  Login
+                </button>
+              </a>
+            <% } else { %>
+              <form id="logoutForm" action="/products" method="get">
+                <button type="submit" id="logoutButton" class="logoutButton">Logout</button>
+              </form>
+              <a href="/order" id="historyButton">
+                <img src="https://img.icons8.com/?size=100&id=3TJyHwlD0g4T&format=png&color=FFFFFF" alt="order History">
+              </a>
+              <a href="/cart" id="cartButton" class="cartButton">
+                <img
+                  src="https://icon-library.com/images/white-shopping-cart-icon-png/white-shopping-cart-icon-png-15.jpg"
+                  alt="Cart"
+                />
+              </a>
+            <% } %>
+          </div>
+        <% } %>
+      </div>
+    </header>
+
+    <main><%- body %></main>
+
+    <script src="/js/index.js"></script>
+  </body>
+</html>

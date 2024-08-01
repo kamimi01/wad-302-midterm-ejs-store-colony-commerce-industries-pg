@@ -1,0 +1,87 @@
+$headBackground: rgb(25, 94, 223);
+$headLetter: white;
+$inputBackground: white;
+$inputHover: rgb(237, 235, 235);
+$inputColor: gray;
+$buttonBackground: rgb(184, 26, 26);
+$buttonHover: rgb(250, 22, 22);
+
+
+
+.loginHead {
+    background-image: url("https://gundamplacestore.com/cdn/shop/collections/MG-banner-4.jpg?v=1657269951");
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    height: 30%;
+    background-color: $headBackground;
+}
+
+.loginBody {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    height: 70%;
+
+    & div {
+        width: 70vw;
+
+        & form {
+            & input {
+                margin-bottom: 10px;
+                font-size: 1em;
+                padding: 15px 10px 10px;
+                font-family: 'Source Sans Pro', arial, sans-serif;
+                border: 1px solid #cecece;
+                background: $inputBackground;
+                color: $inputColor;
+                border-radius: 5px;
+                background-clip: padding-box;
+                box-sizing: border-box;
+                width: 100%;
+        
+                &:focus {
+                    background-color: $inputHover;
+                }
+            }
+        
+            & ::-webkit-input-placeholder {
+                color: $inputColor;
+            }
+        
+            & button {
+                margin-top: 15px;
+                margin-bottom: 25px;
+                background-color: $buttonBackground;
+                padding: 12px 45px;
+                -ms-border-radius: 5px;
+                -o-border-radius: 5px;
+                border-radius: 5px;
+                border: 1px solid $buttonBackground;
+                -webkit-transition: .5s;
+                transition: .5s;
+                display: inline-block;
+                cursor: pointer;
+                width: 100%;
+                color: #fff;
+        
+                &:hover {
+                    background: $buttonHover;
+                }
+            }
+        
+        
+            & a {
+                color: $buttonBackground;
+            }
+
+        }
+    }
+
+}
+
+.errorMessage {
+    color: $buttonBackground;
+}

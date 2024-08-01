@@ -1,0 +1,257 @@
+// body {
+//   font-family: Arial, sans-serif;
+//   margin: 0;
+//   padding: 0;
+//   background-color: #f4f4f4;
+// }
+
+// header {
+//   background-color: #010318;
+//   color: white;
+//   padding: 10px 50px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
+
+// header img {
+//   max-width: 90px;
+// }
+
+// header nav ul {
+//   list-style: none;
+//   margin: 0;
+//   padding: 0;
+//   display: flex;
+// }
+
+// header nav ul li {
+//   margin-left: 20px;
+// }
+
+// header nav ul li a {
+//   color: white;
+//   text-decoration: none;
+// }
+
+// header nav ul li a:hover {
+//   color: #1ec8c0;
+//   text-decoration: none;
+// }
+
+.header-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.breadcrumbs {
+  width: 100%; /* Asegura que ocupe el ancho completo */
+  height: 450px; /* Tamaño predeterminado */
+  background-image: url("https://gundamplacestore.com/cdn/shop/collections/MG-banner-4.jpg?v=1657269951");
+  background-size: cover;
+  background-position: center; /* Alinea el centro de la imagen por defecto */
+}
+
+.breadcrumb-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+.filter-parts input {
+  width: calc(50% - 10px);
+  display: inline-block;
+  margin-right: 10px;
+  box-sizing: border-box;
+}
+
+.filter-parts input:last-child {
+  margin-right: 0;
+}
+
+.filter-options {
+  max-width: 500px;
+  margin-right: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.filter-options h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.filter-options ul {
+  list-style: none;
+  padding: 0;
+}
+
+.filter-options ul li {
+  margin-bottom: 10px;
+}
+
+.filter-options ul li span {
+  float: right;
+}
+
+.filter-options form {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-options ul li input,
+.filter-options ul li select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.filter-options button {
+  padding: 10px;
+  background-color: #010318;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.filter-options button:hover {
+  background-color: #1ec8c0;
+}
+
+.products {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.product {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  flex: 1 1 calc(33.33% - 20px);
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 300px;
+}
+
+.product img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+}
+
+.product-info {
+  position: relative;
+  height: 100%;
+}
+
+.product-hover {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  color: black;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left;
+  z-index: 1;
+  overflow: auto;
+}
+
+.product-info:hover .product-hover {
+  display: block;
+}
+
+.product-hover p {
+  margin: 10px 0;
+}
+
+.add-to-cart {
+  padding: 10px;
+  background-color: #010318;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.add-to-cart:hover {
+  background-color: #1ec8c0;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.quantity-container input {
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+@media (max-width: 992px) {
+  .product {
+    flex: 1 1 calc(50% - 20px);
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .filter-options {
+    max-width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .breadcrumbs {
+    height: 200px; /* Ajusta la altura para pantallas pequeñas */
+    background-position: right center; /* Enfoca la imagen en la parte derecha */
+  }
+  .filter-options {
+    flex: 1 0 80%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .product {
+    flex: 1 1 100%;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+}
+
+.clear {
+  flex-basis: 100%;
+  height: 0;
+}

@@ -1,0 +1,18 @@
+.orderItems {
+    margin-top: 50px;
+    margin-inline: 10%;
+
+    .orderItem {
+        .orderDetailItem {
+            display: flex;
+            margin-bottom: 40px;
+        }
+
+        img {
+            width: 25%;
+            height: 25%;
+
+            margin-right: 20px;
+        }
+    }
+}

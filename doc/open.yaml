@@ -1,0 +1,192 @@
+openapi: 3.0.3
+info:
+  title: colony-commerce-industries
+  version: 1.0.0
+servers:
+  - url: http://localhost:3001
+paths:
+  /auth/register:
+    post:
+      tags:
+        - auth
+      summary: Register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: successful operation
+  /auth/login:
+    post:
+      tags:
+        - auth
+      summary: Login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: successful operation
+  /auth/logout:
+    post:
+      tags:
+        - auth
+      summary: Logout
+      responses:
+        '200':
+          description: successful operation
+  /products:
+    get:
+      tags:
+        - products
+      summary: Get all products
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+  /cart:
+    post:
+      tags:
+        - cart
+      summary: Update cart info
+      description: If the product is already in the cart, the quantity will be updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                  example: "8af61854-a787-4221-9153-9b3b671c8362"
+                productId:
+                  type: number
+                  example: 1
+                quantity:
+                  type: number
+                  example: 5
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '#/components/schemas/Cart'
+  /cart/{productId}:
+    delete:
+      tags:
+        - cart
+      summary: Remove product from cart
+      parameters:
+        - name: productId
+          in: path
+          description: Product ID
+          required: true
+          schema:
+            type: number
+            example: 1
+      responses:
+        '200':
+          description: successful operation
+  /checkout:
+    post:
+      tags:
+        - checkout
+      summary: Checkout
+      description: Checkout the cart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                  example: "8af61854-a787-4221-9153-9b3b671c8362"
+      responses:
+        '200':
+          description: successful operation
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          description: User ID
+          type: number
+          example: 1
+        name:
+          description: User name
+          type: string
+          example: 'John Doe'
+        email:
+          description: User email
+          type: string
+          example: 'example@mail.com'
+    Product:
+      type: object
+      properties:
+        id:
+          description: Product ID
+          type: number
+          example: 1
+        name:
+          description: Product name
+          type: string
+          example: 'Gundam'
+        description:
+          description: Product description
+          type: string
+          example: 'Gundam is a toy'
+        price:
+          description: Product price
+          type: number
+          example: 100
+        image:
+          description: Product image
+          type: string
+          example: 'https://example.com/image.jpg'
+    Cart:
+      type: object
+      properties:
+        userId:
+          description: User ID
+          type: string
+          example: "8af61854-a787-4221-9153-9b3b671c8362"
+        productId:
+          description: Product ID
+          type: number
+          example: 1
+        quantity:
+          description: Product quantity
+          type: number
+          example: 5
+        createdDate:
+          description: Cart created date
+          type: string
+          example: '2021-08-01T00:00:00.000Z'
+    LoginError:
+      type: object
+      properties:
+        message:
+          description: Error message
+          type: string
+          example: 'Invalid email or password'
+    RegisterError:
+      type: object
+      properties:
+        message:
+          description: Error message
+          type: string
+          example: 'email already in use' 

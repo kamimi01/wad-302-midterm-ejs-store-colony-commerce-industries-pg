@@ -1,0 +1,25 @@
+<div class="loginHead">
+  <div class="breadcrumb-overlay">
+    <h1><%- page %></h1>
+  </div>
+</div>
+
+<div class="loginBody">
+  <div>
+    <h4><%- page %> for more access!</h4>
+    <form method="post" action="/auth/<%- action %>">
+      <label for="email">Email</label><br>
+      <input type="email" name="email" id="email" placeholder="email@example.com" /><br>
+  
+      <label for="password">Password</label><br>
+      <input type="password" name="password" id="password" placeholder="********" /><br>
+  
+      <% if (error) { %>
+       <p class="errorMessage"><%- error %></p>
+      <% } %>
+  
+      <button type="submit"><%- page %></button>
+      <p><%- htmlForLink %></p>
+    </form>
+  </div>
+</div>

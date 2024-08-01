@@ -1,0 +1,39 @@
+<section class="breadcrumbs">
+    <div class="breadcrumb-overlay">
+      <h1>Checkout</h1>
+    </div>
+</section>
+
+<% total = 0 %>
+<div class="cartItems">
+    <% items.forEach(cartItem => { %>
+    <div class="cartItem">
+        <img src="<%- cartItem.image %>" alt="<%- cartItem.name %>">
+        <div>
+        <div>
+            <h2><%- cartItem.name %></h2>
+            <p>$<%- cartItem.price.toFixed(2) %></p>
+        </div>
+        <p><%- cartItem.description %></p>
+        <div>
+            <p>Qty: <%- cartItem.quantity %></p>
+            <p>Subtotal: $ <%- (cartItem.price * cartItem.quantity).toFixed(2) %></p>
+        </div>
+        </div>
+    </div>
+    <% total += cartItem.price * cartItem.quantity %>
+    <% }) %>
+
+    <h2>Total: $ <%= total.toFixed(2) %></h2>
+
+    <label for="name">Name: </label>
+    <input type="name" name="name" id="name" placeholder="Your Name" /><br>
+
+    <label for="adress">Adress: </label>
+    <input type="adress" name="adress" id="adress" placeholder="Your Adress" /><br>
+
+    <label for="cardNumber">Card Number: </label>
+    <input type="cardNumber" name="cardNumber" id="cardNumber" placeholder="Your Card Number" /><br>
+
+    <button type="submit" class="placeOrder">Place your order</button>
+  </div>
