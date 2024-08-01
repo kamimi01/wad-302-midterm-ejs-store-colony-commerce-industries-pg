@@ -1,3 +1,9 @@
+# JavaScript
+*.js
+
+# for Mac users
+.DS_Store
+
 # npm packages
 node_modules
 
