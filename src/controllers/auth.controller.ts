@@ -11,10 +11,10 @@ export const renderLogin = (req: Request, res: Response) => {
   });
 };
 
-export const login = (req: Request, res: Response) => {
+export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
-  const existing = UserModel.findBy(email);
+  const existing = await UserModel.findBy(email);
 
   if (!existing || existing.password !== password) {
     res.render("pages/login", {
@@ -42,10 +42,10 @@ export const renderRegister = (req: Request, res: Response) => {
   });
 };
 
-export const register = (req: Request, res: Response) => {
+export const register = async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
-  const existing = UserModel.findBy(email);
+  const existing = await UserModel.findBy(email);
 
   if (existing) {
     res.render("pages/login", {
@@ -58,7 +58,7 @@ export const register = (req: Request, res: Response) => {
     return;
   }
 
-  UserModel.create(email, password);
+  await UserModel.create(email, password);
 
   res.redirect("/auth/login");
 };
